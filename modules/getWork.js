@@ -18,13 +18,13 @@ async function getWork(apiData) {
         else
             var size = 5
         var skipLimit = {}
-        if (pageNo > 0 && pageNo != 0 && pageNo) {
-            skipLimit.skip = size * (pageNo - 1)
-        }
-        skipLimit.limit = size
-        skipLimit.sort = {
-            _id: -1 //Sort by Date Added DESC
-        }
+        // if (pageNo > 0 && pageNo != 0 && pageNo) {
+        //     skipLimit.skip = size * (pageNo - 1)
+        // }
+        // skipLimit.limit = size
+        // skipLimit.sort = {
+        //     _id: -1 //Sort by Date Added DESC
+        // }
         //schema.find(query,projection,skip limit,callback function)
         workPage.find(query, {}, skipLimit, function (err, doc) {
             if (err)

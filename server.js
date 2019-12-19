@@ -10,6 +10,8 @@ var postWork = require('./modules/postWork');
 var getWork = require('./modules/getWork');
 var putWork = require('./modules/putWork');
 
+var createUser=require('./modules/createUser');
+
 var app = express()
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
@@ -19,44 +21,28 @@ app.use(function (req, res, next) {
 });
 app.get('/getWork', async (req, res) => {
   var ObjQuerry = req.body;
-  //you can query without any variable or with any of following variables
-  /*
-  =====================
-  userName:string
-  startTime:Date
-  endTime:Date
-  =====================
-  */
   console.log(ObjQuerry)
   var result = await getWork.getWork(ObjQuerry);
   res.send(result);
 })
 app.post('/postWork', async (req, res) => {
   var ObjQuerry = req.body;
-  //you can query without any variable or with any of following variables
-  /*
-  =====================
-  userName:string
-  startTime:Date
-  endTime:Date
-  =====================
-  */
+
 
   var result = await postWork.postWork(ObjQuerry);
   res.send(result);
 })
 app.put('/putWork', async (req, res) => {
   var ObjQuerry = req.body;
-  //you can query without any variable or with any of following variables
-  /*
-  =====================
-  userName:string
-  startTime:Date
-  endTime:Date
-  =====================
-  */
 
   var result = await putWork.putWork(ObjQuerry);
+  res.send(result);
+})
+app.post('/createUser', async (req, res) => {
+  var ObjQuerry = req.body;
+
+
+  var result = await createUser.createUser(ObjQuerry);
   res.send(result);
 })
 
